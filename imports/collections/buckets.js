@@ -14,4 +14,7 @@ Meteor.methods({
   'buckets.remove': function (bucket) {
     return Buckets.remove(bucket);
   },
+  'buckets.update': function (bucket, content) {
+    return Buckets.update(bucket._id, { $set: { content } });
+  },
 });

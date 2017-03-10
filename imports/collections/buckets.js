@@ -1,5 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 
+export const Buckets = new Mongo.Collection('bucket');
+
 Meteor.methods({
   'buckets.insert': function () {
     return Buckets.insert({
@@ -9,6 +11,7 @@ Meteor.methods({
       sharedWith: [],
     });
   },
+  'buckets.remove': function (bucket) {
+    return Buckets.remove(bucket);
+  },
 });
-
-export const Buckets = new Mongo.Collection('bucket');

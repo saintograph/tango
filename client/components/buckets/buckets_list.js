@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Buckets } from '../../../imports/collections/buckets';
 
@@ -10,9 +11,10 @@ class BucketsList extends Component {
 
   renderList() {
     return this.props.buckets.map(bucket => {
+      const url = `/buckets/${bucket._id}`;
       return (
         <li className="list-group-item" key={bucket._id}>
-          Bucket {bucket._id}
+          <Link to={url}>Bucket {bucket._id}</Link>
           <span className="pull-right">
             <button
               className="btn btn-danger"
@@ -22,10 +24,10 @@ class BucketsList extends Component {
             </button>
           </span>
         </li>
-      )
-    })
+      );
+    });
   }
-  
+
   render() {
     return (
       <ul className="list-group">

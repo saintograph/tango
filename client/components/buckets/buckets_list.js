@@ -6,7 +6,7 @@ import { Buckets } from '../../../imports/collections/buckets';
 class BucketsList extends Component {
 
   onBucketRemove(bucket) {
-    Meteor.call('buckets.remove', bucket)
+    Meteor.call('buckets.remove', bucket);
   }
 
   renderList() {
@@ -39,6 +39,6 @@ class BucketsList extends Component {
 
 export default createContainer(() => {
   Meteor.subscribe('buckets');
-
+  Meteor.subscribe('sharedBuckets');
   return { buckets: Buckets.find({}).fetch() };
 }, BucketsList);

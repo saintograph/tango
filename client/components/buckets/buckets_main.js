@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Buckets } from '../../../imports/collections/buckets';
 import BucketsEditor from './buckets_editor';
-import BucketViewer from './bucket_viewer';
+import BucketsViewer from './buckets_viewer';
+import BucketsShare from './buckets_share';
 
 class BucketsMain extends Component {
   render() {
@@ -10,7 +11,8 @@ class BucketsMain extends Component {
     return (
       <div>
         <BucketsEditor bucket={this.props.bucket} />
-        <BucketViewer bucket={this.props.bucket} />
+        <BucketsViewer bucket={this.props.bucket} />
+        <BucketsShare bucket={this.props.bucket} />
       </div>
     );
   }
@@ -19,5 +21,6 @@ class BucketsMain extends Component {
 export default createContainer((props) => {
   const { bucketId } = props.params;
   Meteor.subscribe('buckets');
+  Meteor.subscribe('sharedBuckets');
   return { bucket: Buckets.findOne(bucketId) };
 }, BucketsMain);

@@ -17,4 +17,7 @@ Meteor.methods({
   'buckets.update': function (bucket, content) {
     return Buckets.update(bucket._id, { $set: { content } });
   },
+  'buckets.share': function (bucket, email) {
+    return Buckets.update(bucket._id, { $push: { sharedWith: email } });
+  },
 });

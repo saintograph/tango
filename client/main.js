@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './app';
 import { Buckets } from '../imports/collections/buckets'; // passed down to child components
-import BucketsList from './components/buckets/buckets_list';
-import BucketsMain from './components/buckets/buckets_main';
+import MainView from './views/main_view';
+import BucketsMain from './code_ide/buckets/buckets_main';
+
+      // <Route path="/buckets/:bucketId" component={BucketsMain} />
 
 const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App} >
-      <IndexRoute component={BucketsList} />
+      <IndexRoute component={MainView} />
       <Route path="/buckets/:bucketId" component={BucketsMain} />
     </Route>
   </Router>
@@ -19,6 +21,6 @@ const routes = (
 Meteor.startup(() => {
   ReactDOM.render(
     routes,
-    document.querySelector('.render-target')
+    document.querySelector('.render-target'),
   );
 });

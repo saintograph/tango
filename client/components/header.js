@@ -14,16 +14,22 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="nav navbar-default">
-        <div className="navbar-header">
-          <Link to="/" className="navbar-brand">TANGO</Link>
+      <nav>
+        <div className="nav-bar">
+          <div className="nav-module logo-module left">
+            <Link to="/" className="navbar-brand" style={{fontSize: 16}}>
+              <h4>TANGO</h4>
+            </Link>
+          </div>
+          <div className="nav-module menu-module left">
+            <ul className="menu">
+              <li><Accounts /></li>
+              <li>
+                <a href="#" onClick={this.onBucketClick.bind(this)}>Create bucket</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <ul className="nav navbar-nav">
-          <li><Accounts /></li>
-          <li>
-            <a href="#" onClick={this.onBucketClick.bind(this)}>Create bucket</a>
-          </li>
-        </ul>
       </nav>
     );
   }

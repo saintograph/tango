@@ -5,6 +5,7 @@ import AceEditor from 'react-ace';
 // import 'codemirror/theme/midnight.css';
 import 'brace/mode/javascript';
 import 'brace/theme/terminal';
+import TaskMain from '../../todo/todos/tasks_main';
 
         {/*<CodeMirror
           value={this.props.bucket.content}
@@ -29,19 +30,27 @@ class BucketsEditor extends Component {
 
   render() {
     return (
-      <div className="col-xs-8">
-        <h5>Input</h5>
-        <button className="btn btn-success">Save</button>
-        <AceEditor
-          mode="javascript"
-          theme="terminal"
-          name="main_editor"
-          value={this.props.bucket.content}
-          onChange={this.onEditorChange}
-          editorProps={{ $blockScrolling: true }}
-          highlightActiveLine
-        />
-      </div>
+      <section className="height-100 cover-8">
+        <div className="col-md-9 col-sm-7">
+          <h5>Editor</h5>
+          <AceEditor
+            mode="javascript"
+            theme="terminal"
+            name="main_editor"
+            value={this.props.bucket.content}
+            onChange={this.onEditorChange}
+            editorProps={{ $blockScrolling: true }}
+            highlightActiveLine
+            width="100%"
+            wrapEnabled
+          />
+        </div>
+        <div className="col-md-3 col-sm-5 bg--white">
+          <div>
+            <TaskMain />
+          </div>
+        </div>
+      </section>
     );
   }
 }

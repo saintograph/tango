@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Buckets } from '../imports/collections/buckets';
+import { Tasks } from '../imports/collections/tasks';
 
 Meteor.startup(() => {
   Meteor.publish('buckets', function () {

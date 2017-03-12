@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import App from './components/app';
+import App from './app';
 import { Buckets } from '../imports/collections/buckets'; // passed down to child components
 import BucketsList from './components/buckets/buckets_list';
 import BucketsMain from './components/buckets/buckets_main';

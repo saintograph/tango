@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Buckets } from '../../../imports/collections/buckets';
 import BucketsEditor from './buckets_editor';
-import BucketsViewer from './buckets_viewer';
 import BucketsShare from './buckets_share';
 import Header from '../../components/header';
 

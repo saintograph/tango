@@ -7,6 +7,10 @@ Meteor.startup(() => {
     return Buckets.find({ ownerId: this.userId });
   });
 
+  Meteor.publish('tasks', function () {
+    return Tasks.find();
+  });
+
   Meteor.publish('sharedBuckets', function () {
     const user = Meteor.users.findOne(this.userId);
 

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 class BucketShare extends Component {
 
+  constructor(props) {
+    super(props);
+    this.onShareClick = this.onShareClick.bind(this);
+  }
+
   onShareClick() {
     const email = this.refs.email.value;
     Meteor.call('buckets.share', this.props.bucket, email);
@@ -10,35 +15,33 @@ class BucketShare extends Component {
   renderShareList() {
     return this.props.bucket.sharedWith.map(email => {
       return (
-        <button
+        <p
           key={email}
-          className="btn btn-default"
         >
           {email}
-        </button>
+        </p>
       );
     });
   }
 
   render() {
     return (
-      <footer className="bg--dark footer-1 text-center-xs">
-        <div className="container">
-          <div className="row">
-            {/*<input ref="email" type="text" className="form-control"/>
-            <div className="input-group-btn">
+      <div>
+        <div>
+          <div>
+            <input ref="email" type="text"/>
+            <div>
               <button
-                className="btn btn-default"
-                onClick={this.onShareClick.bind(this)}
+                onClick={this.onShareClick}
               >
                 Share Bucket
               </button>
-            </div>*/}
+            </div>
           </div>
         </div>
-        {/*<div>Shared With:</div>
-        <div className="btn-group">{this.renderShareList()}</div>*/}
-      </footer>
+        <div>Shared With:</div>
+        {this.renderShareList()}
+      </div>
     );
   }
 }

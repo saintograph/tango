@@ -3,8 +3,9 @@ import { Mongo } from 'meteor/mongo';
 export const Tasks = new Mongo.Collection('task');
 
 Meteor.methods({
-  'tasks.insert': function () {
+  'tasks.insert': function (bucketIdProp) {
     return Tasks.insert({
+      bucketId: bucketIdProp,
       createdAt: new Date(),
       content: [],
     });
@@ -12,7 +13,7 @@ Meteor.methods({
   'tasks.remove': function (task) {
     return Tasks.remove(task);
   },
-  'tasks.update': function (task, text) {
-    return Tasks.update('Q7d5s66eMkz8qvWEJ', { $push: { content: text } });
+  'tasks.update': function (bucketId, text) {
+    return Tasks.update(bucketId, { $push: { content: text } });
   },
 });

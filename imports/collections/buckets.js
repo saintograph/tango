@@ -9,6 +9,7 @@ Meteor.methods({
       content: '',
       ownerId: this.userId,
       sharedWith: [],
+      toDos: [],
     });
   },
   'buckets.remove': function (bucket) {

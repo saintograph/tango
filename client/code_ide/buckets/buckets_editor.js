@@ -33,7 +33,7 @@ class BucketsEditor extends Component {
         </div>
         <div className="col-md-3 col-sm-5 bg--white">
           <div>
-            <TaskMain bucket={this.props.bucket} />
+            <TaskMain location={this.props.location} />
           </div>
         </div>
       </section>

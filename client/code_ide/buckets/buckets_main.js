@@ -11,7 +11,7 @@ class BucketsMain extends Component {
     return (
       <div>
         <Header />
-        <BucketsEditor bucket={this.props.bucket} />
+        <BucketsEditor bucket={this.props.bucket} location={this.props.location} />
         <BucketsShare bucket={this.props.bucket} />
       </div>
     );

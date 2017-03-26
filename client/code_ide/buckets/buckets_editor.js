@@ -14,6 +14,10 @@ class BucketsEditor extends Component {
     Meteor.call('buckets.update', this.props.bucket, content);
   }
 
+  callRepl() {
+    console.log('test');
+  }
+
   render() {
     return (
       <section className="height-100 cover-8">
@@ -33,7 +37,8 @@ class BucketsEditor extends Component {
         </div>
         <div className="col-md-3 col-sm-5 bg--white">
           <div>
-            <TaskMain location={this.props.location} />
+            {/*<TaskMain location={this.props.location} />*/}
+            {this.callRepl()}
           </div>
         </div>
       </section>
